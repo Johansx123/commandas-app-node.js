@@ -29,13 +29,46 @@ mysqlEvent.add(
 
 export const getOrders = async (req,res)=> {
     try {
-        res.json({jsonarray})
+        const [rows] = await pool.query('SELECT * FROM unicentaopos.ordersapi');
+        if(rows.length <= 0) return res.status(404).json({
+            message: "orden no encontrada"
+        });
+        res.send(rows);
     } catch (error) {
         return res.status(500).json ({
-            message: 'get error orders'
-        })
+            message: 'Error al consultar DB'
+        })    
     }
 }
+
+export const getOrdersday = async (req, res) => {
+    try {
+        const ordertime = (req.params.ordertime + '%')
+        const [rows] = await pool.query('SELECT * FROM unicentaopos.ordersapi WHERE ordertime LIKE ?', [ordertime]);
+        if(rows.length <= 0) return res.status(404).json({
+            message: "no se encontraron registros"
+        });
+        res.send(rows);
+    } catch (error) {
+        return res.status(500).json ({
+            message: 'Error al consultar DB'
+        })    
+    }
+};
+
+export const getOrder = async (req, res) => {
+    try {
+        const [rows] = await pool.query('SELECT * FROM unicentaopos.ordersapi WHERE orderid = ?', [req.params.id]);
+        if(rows.length <= 0) return res.status(404).json({
+            message: "orden no encontrada"
+        });
+        res.send(rows);
+    } catch (error) {
+        return res.status(500).json ({
+            message: 'Error al consultar DB'
+        })    
+    }
+};
 export const recallOrders = async (req,res)=> {
     try {
         res.send('nonononon')
@@ -49,7 +82,7 @@ export const recallOrders = async (req,res)=> {
 export const Createorders = async (req, res) => {
     try {
         const {name, salary} = req.body;
-        const [rows] = await pool.query('INSERT INTO employees(name, salary) VALUES (?, ?)',[name , salary]);
+        const [rows] = await pool.query('INSERT INTO FROM unicentaopos.ordersapi(name, salary) VALUES (?, ?)',[name , salary]);
         res.send(
             {
             id: rows.insertId,

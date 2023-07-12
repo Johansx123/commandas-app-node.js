@@ -5,6 +5,7 @@ socket.on('ping', ()=> {
     socket.emit('pong')
 })
 
+
 socket.on('nueva-orden', (nuevaOrden) => {
   console.log('Nueva orden recibida:', nuevaOrden);
   // Cargar la información de la nueva orden en la interfaz de usuario
