@@ -1,0 +1,84 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+.commandas-grid{
+  display: grid;
+  grid-template-columns: repeat(5,222px);
+  gap: 20px;
+}
+.comanda {
+  width: 222px;
+  height: 270px;
+  border-radius: 42px;
+  background: #D9D9D9;
+  overflow: hidden;
+}
+.comanda header{
+  display: flex;
+  height: 66px;
+  width: 222px;
+  background: var(--red-primary, #ED3237);
+  justify-content: space-around;
+  align-items: center;
+  
+}
+.comanda header .numberTable{
+  padding-left: 20px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-left: solid 2px  #E1E1E1;
+}
+.comanda .detail{
+  padding: 20px;
+}
+.comanda .detail p {
+  color: #272727;
+  text-align: left;  
+}
+.comandas footer{
+  width: 100%;
+  margin-top: 50px;
+  height: 233px;
+  background: var(--base-500, #898989);
+}
