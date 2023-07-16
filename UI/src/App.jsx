@@ -1,10 +1,10 @@
 import "./App.css";
-import Comandas from "./Comandas";
+import Comandas from "./Components/Comandas";
 
 function App() {
 	return (
 		<>
-			<Comandas />
+		<Comandas/>
 		</>
 	);
 }
