@@ -1,14 +1,12 @@
-import './App.css'
-import Comandas from './Comandas'
+import "./App.css";
+import Comandas from "./Comandas";
 
 function App() {
-
-  return (
-    <>
-      <Comandas/>
-    </>
-  )
+	return (
+		<>
+			<Comandas />
+		</>
+	);
 }
 
-export default App
-
+export default App;
