@@ -1,14 +1,20 @@
 import express from 'express';
 import orders from './Routes/orders.Routes.js';
-import { Server as WebSocketServer } from 'socket.io';
+import { Server as SocketServer } from 'socket.io';
 import http from 'http';
+import cors from 'cors';
+
  
 
 
 const app = express();
 export const server = http.createServer(app)
-export const io = new WebSocketServer(server)
+export const io = new SocketServer(server, 
+    {cors: {
+        origin:"http://localhost:5173"
+    }})
 app.use(express.json());
+
 
 io.on('connection', (socket) => {
     console.log('Un cliente se ha conectado', socket.id);
